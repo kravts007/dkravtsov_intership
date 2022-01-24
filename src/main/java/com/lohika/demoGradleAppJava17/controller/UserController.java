@@ -1,6 +1,6 @@
 package com.lohika.demoGradleAppJava17.controller;
 
-import com.lohika.demoGradleAppJava17.entity.User;
+import com.lohika.demoGradleAppJava17.entity.Client;
 import com.lohika.demoGradleAppJava17.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,14 +27,14 @@ public class UserController {
 
 
     @PostMapping(value = "/clients")
-    public ResponseEntity<?> create(@RequestBody User client) {
+    public ResponseEntity<?> create(@RequestBody Client client) {
         userService.create(client);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/clients")
-    public ResponseEntity<List<User>> read() {
-        final List<User> clients = userService.readAll();
+    public ResponseEntity<List<Client>> read() {
+        final List<Client> clients = userService.readAll();
 
         return clients != null && !clients.isEmpty()
                 ? new ResponseEntity<>(clients, HttpStatus.OK)
@@ -42,8 +42,8 @@ public class UserController {
     }
 
     @GetMapping(value = "/clients/{id}")
-    public ResponseEntity<User> read(@PathVariable(name = "id") Long id) {
-        final User client = userService.read(id);
+    public ResponseEntity<Client> read(@PathVariable(name = "id") Long id) {
+        final Client client = userService.read(id);
 
         return client != null
                 ? new ResponseEntity<>(client, HttpStatus.OK)
@@ -51,7 +51,7 @@ public class UserController {
     }
 
     @PutMapping(value = "/clients/{id}")
-    public ResponseEntity<?> update(@PathVariable(name = "id") Long id, @RequestBody User client) {
+    public ResponseEntity<?> update(@PathVariable(name = "id") Long id, @RequestBody Client client) {
         final boolean updated = userService.update(client, id);
 
         return updated

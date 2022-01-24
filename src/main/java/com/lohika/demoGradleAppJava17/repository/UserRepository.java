@@ -1,13 +1,16 @@
 package com.lohika.demoGradleAppJava17.repository;
 
-import com.lohika.demoGradleAppJava17.entity.User;
+import com.lohika.demoGradleAppJava17.entity.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 /**
- * Repository interface that extends {@link JpaRepository} for class {@link User}.
+ * Repository interface that extends {@link JpaRepository} for class {@link Client}.
  *
  * @author Dmytro Kravtsov
  * @version 1.0
  */
-public interface UserRepository extends JpaRepository<User, Long> {
-        User findByLogin(String login);
+@Repository
+public interface UserRepository extends JpaRepository<Client, Long> {
+        Client findByLogin(String login);
 }

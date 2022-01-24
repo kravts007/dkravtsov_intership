@@ -1,22 +1,22 @@
 package com.lohika.demoGradleAppJava17.service;
 
-import com.lohika.demoGradleAppJava17.entity.User;
+import com.lohika.demoGradleAppJava17.entity.Client;
 
 import java.util.List;
 /**
- * Service interface for class {@link User}.
+ * Service interface for class {@link Client}.
  *
  * @author Dmytro Kravtsov
  * @version 1.0
  */
 public interface UserService {
-    void create(User client);
+    void create(Client client);
 
-    List<User> readAll();
+    List<Client> readAll();
 
-    User read(Long id);
+    Client read(Long id);
 
-    boolean update(User client, Long id);
+    boolean update(Client client, Long id);
 
     boolean delete (Long id);
 }

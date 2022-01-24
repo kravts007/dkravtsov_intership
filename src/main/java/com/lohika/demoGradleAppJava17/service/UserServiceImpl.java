@@ -1,14 +1,16 @@
 package com.lohika.demoGradleAppJava17.service;
 
-import com.lohika.demoGradleAppJava17.entity.User;
+import com.lohika.demoGradleAppJava17.entity.Client;
 import com.lohika.demoGradleAppJava17.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 /**
  * Implementation of {@link UserService} interface.
  * Wrapper for {@link UserRepository} + business logic.
@@ -28,11 +30,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User client = userRepository.findByLogin(userName);
-        if(client == null){
+        Client client = userRepository.findByLogin(userName);
+        if (client == null) {
             throw new UsernameNotFoundException("Unknown user: " + userName);
         }
-        UserDetails user = org.springframework.security.core.userdetails.User.builder()
+        UserDetails user = User.builder()
                 .username(client.getLogin())
                 .password(client.getPassword())
                 .roles(client.getRole())
@@ -41,22 +43,22 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public void create(User client) {
+    public void create(Client client) {
         userRepository.save(client);
     }
 
     @Override
-    public List<User> readAll() {
+    public List<Client> readAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public User read(Long id) {
+    public Client read(Long id) {
         return userRepository.getById(id);
     }
 
     @Override
-    public boolean update(User client, Long id) {
+    public boolean update(Client client, Long id) {
         if (userRepository.existsById(id)) {
             client.setId(id);
             userRepository.save(client);
