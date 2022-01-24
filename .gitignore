@@ -36,35 +36,6 @@ out/
 ### VS Code ###
 .vscode/
 
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
-
-@kravts007
-kravts007
-/
-dkravtsov-maven
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-dkravtsov-maven/.gitignore
-
-Dmytro Kravtsov Initial commit
-Latest commit 3fc6ee2 on 7 Oct 2021
- History
- 0 contributors
-33 lines (26 sloc)  362 Bytes
-
 # Compiled class file
 *.class
 
@@ -98,16 +69,4 @@ target
 
 #jenv settings
 *.java-version
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
+

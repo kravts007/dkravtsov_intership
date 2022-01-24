@@ -1,6 +1,6 @@
 package com.lohika.demoGradleAppJava17.service;
 
-import com.lohika.demoGradleAppJava17.entity.Client;
+import com.lohika.demoGradleAppJava17.entity.MyUser;
 import com.lohika.demoGradleAppJava17.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        Client client = userRepository.findByLogin(userName);
+        MyUser client = userRepository.findByLogin(userName);
         if (client == null) {
             throw new UsernameNotFoundException("Unknown user: " + userName);
         }
@@ -43,22 +43,22 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public void create(Client client) {
+    public void create(MyUser client) {
         userRepository.save(client);
     }
 
     @Override
-    public List<Client> readAll() {
+    public List<MyUser> readAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public Client read(Long id) {
+    public MyUser read(Long id) {
         return userRepository.getById(id);
     }
 
     @Override
-    public boolean update(Client client, Long id) {
+    public boolean update(MyUser client, Long id) {
         if (userRepository.existsById(id)) {
             client.setId(id);
             userRepository.save(client);
