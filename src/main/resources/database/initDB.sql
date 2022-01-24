@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS clients
     email VARCHAR(200) NOT NULL,
     login  VARCHAR(50) NOT NULL,
     password  VARCHAR(50) NOT NULL
-
+--     locked BOOLEAN NOT NULL ,
+--     enabled BOOLEAN NOT NULL
 );
 CREATE SEQUENCE clients_id_seq START WITH 3 INCREMENT BY 1;
 
