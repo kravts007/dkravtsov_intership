@@ -26,13 +26,13 @@ public class UserController {
     }
 
 
-    @PostMapping(value = "/clients")
+    @PostMapping(value = "/api/v*/clients")
     public ResponseEntity<?> create(@RequestBody MyUser client) {
         userService.create(client);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/clients")
+    @GetMapping(value = "/api/v*/clients")
     public ResponseEntity<List<MyUser>> read() {
         final List<MyUser> clients = userService.readAll();
 
@@ -41,7 +41,7 @@ public class UserController {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping(value = "/clients/{id}")
+    @GetMapping(value = "/api/v*/clients/{id}")
     public ResponseEntity<MyUser> read(@PathVariable(name = "id") Long id) {
         final MyUser client = userService.read(id);
 
@@ -50,7 +50,7 @@ public class UserController {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping(value = "/clients/{id}")
+    @PutMapping(value = "/api/v*/clients/{id}")
     public ResponseEntity<?> update(@PathVariable(name = "id") Long id, @RequestBody MyUser client) {
         final boolean updated = userService.update(client, id);
 
@@ -59,7 +59,7 @@ public class UserController {
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 
-    @DeleteMapping(value = "/clients/{id}")
+    @DeleteMapping(value = "/api/v*/clients/{id}")
     public ResponseEntity<?> delete(@PathVariable(name = "id") Long id) {
         final boolean deleted = userService.delete(id);
 
