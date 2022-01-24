@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS clients
+(
+    id    INTEGER PRIMARY KEY,
+    name  VARCHAR(200) NOT NULL,
+    role  VARCHAR(50) NOT NULL,
+    phone VARCHAR(50)  NOT NULL,
+    email VARCHAR(200) NOT NULL,
+    login  VARCHAR(50) NOT NULL,
+    password  VARCHAR(50) NOT NULL
+
+);
+CREATE SEQUENCE clients_id_seq START WITH 3 INCREMENT BY 1;
+
+-- DROP TABLE IF EXISTS clients;
+-- DROP SEQUENCE IF EXISTS clients_id_seq
