@@ -1,4 +1,4 @@
-package com.lohika.demoGradleAppJava17.security.config;
+package com.lohika.demoGradleAppJava17.security;
 
 import com.lohika.demoGradleAppJava17.filter.CustomAuthenticationFilter;
 import com.lohika.demoGradleAppJava17.filter.CustomAuthorizationFilter;
