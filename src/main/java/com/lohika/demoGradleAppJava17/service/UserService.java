@@ -10,7 +10,7 @@ import java.util.List;
  * @version 1.0
  */
 public interface UserService {
-    void create(MyUser client);
+    MyUser create(MyUser client);
 
     List<MyUser> readAll();
 
@@ -19,4 +19,7 @@ public interface UserService {
     boolean update(MyUser client, Long id);
 
     boolean delete (Long id);
+
+    MyUser getUser(String username);
+//    void addRoleToUser(String username, String roleName);
 }
